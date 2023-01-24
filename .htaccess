@@ -1,0 +1,4 @@
+RewriteEngine On 
+RewriteRule /index.php /controllers/homeController.php
+RewriteRule /controllers/pagesController.php /pages.php
+RewriteRule /controllers/parametersController.php /parameters.php
