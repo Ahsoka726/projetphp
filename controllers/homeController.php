@@ -1,74 +1,66 @@
 <?php
 
-if(!isset($_COOKIE['test'])){
-$nbrArticles = 6;
-$heading= array(
-'0',
-'1',
-'2',);
-}
-$rssGameLink = "https://www.eveonline.com/rss/news";
-$rssSportLink = "https://rmcsport.bfmtv.com/rss/football/";
-$rssNewsLink = "https://www.lemonde.fr/rss/une.xml";
-$rssTechLink = "https://www.01net.com/actualites/feed/";
-$rssMusicLink = "https://www.hits1radio.com/category/music/feed/";
+require(__DIR__ . '/function.php');
 
-$rssGameObject = simplexml_load_file($rssGameLink);
-$rssSportObject = simplexml_load_file($rssSportLink);
-$rssNewsObject = simplexml_load_file($rssNewsLink);
-$rssTechObject = simplexml_load_file($rssTechLink);
-$rssMusicObject = simplexml_load_file($rssMusicLink);
-$rss = [];
-$rss[0] = $rssGameArray = array();
-$rss[1] = $rssSportArray = array();
-$rss[2] = $rssNewsArray = array();
-$rss[3] = $rssTechArray = array();
-$rss[4] = $rssMusicArray = array();
-
-foreach ($heading as $value) {
-    switch ($value) {
-        case '0':
-            $rss[0] = RssFeed($rssGameObject,$nbrArticles,$rssGameArray);
-            break;
+if (!isset($_COOKIE['article']) && !isset($_COOKIE['heading'])) {
+    $nbrArticles = 6;
+    $heading = [0,1,2];
+} else {
+    $nbrArticles = $_COOKIE['article'];
+    switch ($nbrArticles) {
         case '1':
-            $rss[1] =  RssFeed($rssSportObject,$nbrArticles,$rssSportArray);
+            $nbrArticles = 6;
             break;
         case '2':
-            $rss[2] = RssFeed($rssNewsObject,$nbrArticles,$rssNewsArray);
+            $nbrArticles = 9;
             break;
         case '3':
-            $rss[3] =   RssFeed($rssTechObject,$nbrArticles,$rssTechArray);
+            $nbrArticles = 12;
+            break;
+        default:
+            
+            break;
+    }
+    $heading = json_decode($_COOKIE['heading']);
+    var_dump($heading);
+}
+foreach ($heading as $value) {
+    $i=0;
+    switch ($value) {
+        case '0':
+            $rss[$i] = RssFeed($rssGameObject, $nbrArticles, $rssGameArray);
+            $i++;
+            break;
+        case '1':
+            $rss[$i] =  RssFeed($rssSportObject, $nbrArticles, $rssSportArray);
+            $i++;
+            break;
+        case '2':
+            $rss[$i] = RssFeed($rssNewsObject, $nbrArticles, $rssNewsArray);
+            $i++;
+            break;
+        case '3':
+            $rss[$i] =   RssFeed($rssTechObject, $nbrArticles, $rssTechArray);
+            $i++;
             break;
         case '4':
-            $rss[4] =   RssFeed($rssMusicObject,$nbrArticles,$rssMusicArray);
+            $rss[$i] =   RssFeed($rssMusicObject, $nbrArticles, $rssMusicArray);
+            $i++;
             break;
         default:
             $error['rssIncorrect'] = 'lien rss non trouvé';
-        break;
+            break;
     }
 }
 
-/**
- * @param object $rss Je récupére le liens du RSS que l'utilisateur à choisis
- * @param int $nbrArticles Je récupére le nombre d'article que l'utilisateur à choisis 
- * Ceux-ci doivent être 6 - 9 ou 12 défault 6
- * @param array $array Je stocke dans le tableau associé les données
- * 
- * @return array Je retourne le tableaux renseignez en entrée remplis des informations néccéssaires à l'affichage
- */
-function rssFeed(object $rss,int $nbrArticles,array $array):array{
-    for ($i=0; $i < $nbrArticles ; $i++) { 
-        $array[$i]['title'] = $rss->channel->item[$i]->title;
-        $array[$i]['link'] = $rss->channel->item[$i]->link;
-        $array[$i]['desc'] = substr($rss->channel->item[$i]->description,0,250);
-    }
-    // var_dump($array);
-    return $array;
-}
+
+
+
+
 
 include(__DIR__ . '/../views/templates/header.php');
 
 include(__DIR__ . '/../views/home.php');
 
 
-include(__DIR__.'/../views/templates/footer.php');
+include(__DIR__ . '/../views/templates/footer.php');
