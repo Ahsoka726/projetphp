@@ -67,8 +67,6 @@ if (empty($articles)) {
 
             setcookie('article',$articles,(time()+3600*24));
 
-
-            // stocker l url dans le cookie en fonction de lavleur numerique go chercher l url correspondante
             setcookie('heading',json_encode($headings),(time()+3600*24));
 
             // FIN CREATION DE COOKIE

@@ -15,6 +15,11 @@
 
 <body>
   <header>
+    <nav class="nav justify-content-center  ">
+      <a class="nav-link active" href="../../controllers/pagesController.phpq=0" aria-current="page">Active link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link disabled" href="#">Disabled link</a>
+    </nav>
     <!-- place navbar here -->
   </header>
   <main>
