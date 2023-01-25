@@ -1,0 +1,25 @@
+/*=============================================================================================================================*/
+/* START FOOTER */
+
+/*Pour enlever le surlignement hypertexte des mots dans le footer */
+/* plus type de police et sa taille*/
+small{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #8D8D8D;
+}
+a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #8D8D8D;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+}
+/*Couleur background du Footer*/
+footer{
+    background-color: #152733;
+}
+/* END FOOTER */
+/*=============================================================================================================================*/
