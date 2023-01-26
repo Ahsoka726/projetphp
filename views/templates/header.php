@@ -21,4 +21,4 @@
     <!-- place navbar here -->
   </header>
   <main>
-    <div class="container-fluid">
+    <div class="container">
