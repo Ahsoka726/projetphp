@@ -27,7 +27,7 @@
                 };
                
             ?>
-                <div class="card col-sm-12 col-md-3 mb-3 mt-3" style="width: 18rem;">
+                <div class="card col-sm-12 col-md-3 col-lg-5 mb-5 mt-5" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title"><?= $title ?></h5>
                         <p class="card-text date"><?= $date ?></p>

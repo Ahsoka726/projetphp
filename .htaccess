@@ -1,8 +1,8 @@
 RewriteEngine On 
-RewriteRule Acceuil /controllers/homeController.php
+RewriteRule Accueil /controllers/homeController.php
 RewriteRule sport /controllers/pagesController.php?pages=sport
 RewriteRule gaming /controllers/pagesController.php?pages=gaming
 RewriteRule news /controllers/pagesController.php?pages=news
 RewriteRule music /controllers/pagesController.php?pages=music
 RewriteRule tech /controllers/pagesController.php?pages=tech
-RewriteRule Parametre /controllers/parametersController.php
+RewriteRule Parametres /controllers/parametersController.php

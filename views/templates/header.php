@@ -30,10 +30,10 @@ if (!isset($_COOKIE['heading'])) {
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <img src="/public/assets/img/Votre_savoir_est_votre_culture.png" alt="logo du site actualis">
-        <h1 class="col-7">Actualis</h1>
+        <h1 class="col">Actualis</h1>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,15 +42,17 @@ if (!isset($_COOKIE['heading'])) {
             <?php 
             foreach ($headings as $heading){
             
-              echo '<li class="nav-item  text-light">'.
+              echo '<li class="nav-item">'.
               '<a class="nav-link active" href="'.
               $heading.
               '" aria-current="page">'.
               $heading.'<a>';
             } ?>
-            <li class="nav-item  text-light">
-              <a class="nav-link active" href= "Acceuil" aria-current="page">Accueil</a>
-              <a class="nav-link active" href="Parametre" aria-current="page">Paramètre</a>
+            <li class="nav-item">
+              <a class="nav-link active" href= "Accueil" aria-current="page">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Parametres" aria-current="page">Paramètres</a>
             </li>
           </ul>
         </div>
