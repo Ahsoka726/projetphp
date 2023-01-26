@@ -32,6 +32,8 @@ function rssFeed(object $rss,int $nbrArticles,array $array):array{
         $array[$i]['title'] = $rss->channel->item[$i]->title;
         $array[$i]['link'] = $rss->channel->item[$i]->link;
         $array[$i]['desc'] = substr($rss->channel->item[$i]->description,0,250);
+    
+    
     }
     // var_dump($array);
     return $array;

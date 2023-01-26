@@ -44,10 +44,6 @@ if (empty($articles)) {
     $error['article'] = 'Veuillez selectionnez une valeur';
     // sinon si la valeur séléctionné n'est pas comprise entre 1 et 3
 } else {
-    if ($articles < 1 || $articles >3) {
-    // envoie ce message d'erreur
-        $error['article'] = 'Selectionnez une valeur existante';
-    }
 }
 
             // FIN SECTION CHOIX NOMBRE D ARTICLE (radio)

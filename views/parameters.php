@@ -22,13 +22,13 @@
                             <div class="col-md-12">
                             <label for="article">Selectionnez le nombre d'article</label>
                             <br>
-                            <input type="radio" name="article" id="article6" value="1"/>
+                            <input type="radio" name="article" id="article6" value="6"/>
                             <label for="article">6</label>
 
-                            <input type="radio" name="article" id="article9" value="2"/>
+                            <input type="radio" name="article" id="article9" value="9"/>
                             <label for="article">9</label>
 
-                            <input type="radio" name="article" id="article12" value="3"/>
+                            <input type="radio" name="article" id="article12" value="12"/>
                             <label for="article">12</label>
                             <p class="form-text text-muted"><?= $error['article'] ?? '' ?></p>
                             
