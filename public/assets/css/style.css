@@ -12,7 +12,7 @@
 
 html, body {
     height: 100%;
-    background-color: #ffffff;
+    background-color: #ebeff8;
     /* overflow: hidden; */
 }
 
@@ -144,23 +144,28 @@ html, body {
     margin-bottom: 8px !important;
 }
 
-.invalid-feedback{
-    color: #ff606e;
+img{
+    width: 10%;
+    border-radius: 10px;
+    display: flex;
+    
 }
 
-.valid-feedback{
-   color: #2acc80;
+.nav-link{
+    --bs-nav-link-color : white;
+    display: flex;
+    justify-content: center;
 }
 
-input:required{
-
-    color: #ff606e;
+h1{
+    color : white;
+    display: flex;
+    justify-content: center;
+    
 }
 
-input:invalid{
 
-    color: #ff606e;
-}
+  
 
 input:valid{
 
