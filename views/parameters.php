@@ -3,7 +3,7 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Formulaire</h3>
+                        <h3>Paramètre</h3>
                         
                         <form class="requires-validation" method="POST">
         <!-- un menu deroulant avec light mode and dark mode /  radio choix nmbr article 6/9/12 choix des sujets min-5 checkbox en haut  -->

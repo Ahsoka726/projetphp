@@ -1,19 +1,18 @@
-<div class="row justify-content-center g-2">
+<div class="row justify-content-around">
 
-    <?php foreach ($heading as $headings){
-$i=0;
+    <?php foreach ($heading as $key => $headings){
     ?>
-     <div class="card col-4 mb-3" style="width: 18rem;">
+     <div class="card col-sm-12  mb-3" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title"><?=$headings?></h5>
+            <h5 class="card-title"><?=$rss[$key][0]['title']?></h5>
             <p class="card-text">
-                <?= $rss[$i][0]['desc']?>
+                <?=$rss[$key][0]['desc']?>
             </p>
-            <div class="text-center">
-                <a href="#" class="btn btn-primary">Plus d'infos</a>
+            <div class="card-footer text-center">
+                <a href="#" class="btn btn-primary">Plus d'informations</a>
             </div>
         </div>
     </div>
-   <?php $i++; } ?>
+   <?php  } ?>
   
 </div>

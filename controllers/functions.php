@@ -1,12 +1,5 @@
-<?php
+<?php 
 
-if(!isset($_COOKIE['test'])){
-$nbrArticles = 1;
-$heading= array(
-'0',
-'1',
-'2',);
-}
 $rssGameLink = "https://www.eveonline.com/rss/news";
 $rssSportLink = "https://rmcsport.bfmtv.com/rss/football/";
 $rssNewsLink = "https://www.lemonde.fr/rss/une.xml";
@@ -25,28 +18,6 @@ $rss[2] = $rssNewsArray = array();
 $rss[3] = $rssTechArray = array();
 $rss[4] = $rssMusicArray = array();
 
-foreach ($heading as $value) {
-    switch ($value) {
-        case '0':
-            $rss[0] = RssFeed($rssGameObject,$nbrArticles,$rssGameArray);
-            break;
-        case '1':
-            $rss[1] =  RssFeed($rssSportObject,$nbrArticles,$rssSportArray);
-            break;
-        case '2':
-            $rss[2] = RssFeed($rssNewsObject,$nbrArticles,$rssNewsArray);
-            break;
-        case '3':
-            $rss[3] =   RssFeed($rssTechObject,$nbrArticles,$rssTechArray);
-            break;
-        case '4':
-            $rss[4] =   RssFeed($rssMusicObject,$nbrArticles,$rssMusicArray);
-            break;
-        default:
-            $error['rssIncorrect'] = 'lien rss non trouvé';
-        break;
-    }
-}
 
 /**
  * @param object $rss Je récupére le liens du RSS que l'utilisateur à choisis
@@ -60,15 +31,8 @@ function rssFeed(object $rss,int $nbrArticles,array $array):array{
     for ($i=0; $i < $nbrArticles ; $i++) { 
         $array[$i]['title'] = $rss->channel->item[$i]->title;
         $array[$i]['link'] = $rss->channel->item[$i]->link;
-        $array[$i]['desc'] = substr($rss->channel->item[$i]->description,0,200);
+        $array[$i]['desc'] = substr($rss->channel->item[$i]->description,0,250);
     }
     // var_dump($array);
     return $array;
 }
-
-include(__DIR__ . '/../views/templates/header.php');
-
-include(__DIR__ . '/../views/home.php');
-
-
-include(__DIR__.'/../views/templates/footer.php');
