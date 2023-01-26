@@ -1,3 +1,18 @@
+<?php
+// si tu ne trouve pas le cookie qui contient le tableau heading
+if (!isset($_COOKIE['heading'])) {
+  // implémente les valeurs ci par defaut
+  $headings = ['sport','gaming','news'];
+}else{
+  // sinon recupére toute les valeurs contenu dans le tableau headings et décode les
+  $headings = json_decode($_COOKIE['heading']);
+}
+
+?>
+
+
+
+
 <!doctype html>
 <html lang="fr">
 
@@ -15,47 +30,28 @@
 
 <body>
   <header>
-    <!-- <nav class="nav justify-content-center">
-      <a class="nav-link active" href="../../controllers/pagesController.phpq=0" aria-current="page">Active link</a>
-      <a class="nav-link" href="#">Link</a>
-      <a class="nav-link disabled" href="#">Disabled link</a>
-    </nav> -->
     
-    <!-- <div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
-
-  
-      
-      <a class="nav-link active" href="../../controllers/pagesController.php?pages=gaming" aria-current="page">gaming</a>
-  
-      
-  </div>
-</div>
-<nav class="navbar navbar-dark bg-dark d-md-none">
-  <div class="container-fluid">
-  
-  
-    <img src="/public/assets/img/Votre_savoir_est_votre_culture.png" alt="logo du site actualis">
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      
-      
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-</nav> -->
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
     <img src="/public/assets/img/Votre_savoir_est_votre_culture.png" alt="logo du site actualis">
-    <h1>Actualis</h1>
+    <h1 class="col-7">Actualis</h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-        <a class="nav-link active" href="../../controllers/pagesController.php?pages=gaming" aria-current="page">Gaming</a>
-        </li>
+        <?php 
+        foreach ($headings as $heading){
+         
+          echo '<li class="nav-item">'.
+          '<a class="nav-link active" href="../../controllers/pagesController.php?pages='.
+          $heading.
+          '" aria-current="page">'.
+          $heading.'<a>';
+        } ?>
+        
+        
+        <!-- </li>
         <li class="nav-item">
         <a class="nav-link active" href="../../controllers/pagesController.php?pages=sport" aria-current="page">Sport</a>
         </li>
@@ -63,14 +59,17 @@
         <a class="nav-link active" href="../../controllers/pagesController.php?pages=news" aria-current="page">News</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../../controllers/pagesController.php?pages=tech" aria-current="page">Tech</a>
+        <a class="nav-link active" href="../../controllers/pagesController.php?pages=tech" aria-current="page">Tech</a>
         </li>
         <li class="nav-item">
         <a class="nav-link active" href="../../controllers/pagesController.php?pages=music" aria-current="page">Musique</a>
+        </li> -->
+        <li class="nav-item">
+        <a class="nav-link active" href="../../controllers/parametersController.php" aria-current="page">Paramètre</a>
         </li>
       </ul>
     </div>
-  </div>
+  </div> 
 </nav>
     <!-- place navbar here -->
   </header>

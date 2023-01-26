@@ -121,6 +121,7 @@ html, body {
     font-size: 15px;
     font-weight: 300;
     color: #8D8D8D;
+    
     outline: none;
     resize: none;
     height: 120px;
@@ -132,6 +133,7 @@ html, body {
 .form-content textarea:hover, .form-content textarea:focus {
     border: 0;
     background-color: #ebeff8;
+    
     color: #8D8D8D;
 }
 
@@ -151,12 +153,15 @@ img{
     --bs-nav-link-color : white;
     display: flex;
     justify-content: center;
+    
+    
 }
 
 h1{
     color : white;
     display: flex;
     justify-content: center;
+    
     
 }
 
