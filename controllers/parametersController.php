@@ -26,7 +26,7 @@ $headings = filter_input(INPUT_POST, 'heading', FILTER_SANITIZE_NUMBER_INT, FILT
      // j'utilise la fonction native count pour conditionné qu'au moins 3 valeur sont entrés (3 cases cochés)
     if (count($headings) < 3) {
         // envoie ce message d'erreur
-        $error['heading'] = "Veuillez selectionnez trois choix";
+        $error['heading'] = "Veuillez entrez au moins trois valeur";
     } else {
 
         // sinon je boucle sur le tableau $headings pour m'assurré qu'aucune valeur inférieur a 0 ou superieur a 5 ne soit entré 
