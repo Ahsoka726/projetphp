@@ -9,7 +9,7 @@
                 <?=$rss[$key][0]['desc']?>
             </p>
             <div class="text-center">
-                <a href="" class="btn btn-primary">Plus d'infos</a>
+                <a href="../../controllers/pagesController.php?pages=<?=$heading?>" class="btn btn-primary">Plus d'infos</a>
             </div>
         </div>
     </div>
