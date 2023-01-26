@@ -1,11 +1,14 @@
 <?php
 
-if(!isset($_COOKIE['test'])){
+if(!isset($_COOKIE['heading'])){
 $nbrArticles = 1;
-$heading= array(
-'0',
-'1',
-'2',);
+$headings= array(
+'sport',
+'news',
+'tech',);
+}else{
+    $headings = json_decode($_COOKIE['heading']);
+    $nbrArticles = 1;
 }
 $rssGameLink = "https://www.eveonline.com/rss/news";
 $rssSportLink = "https://rmcsport.bfmtv.com/rss/football/";
@@ -25,22 +28,22 @@ $rss[2] = $rssNewsArray = array();
 $rss[3] = $rssTechArray = array();
 $rss[4] = $rssMusicArray = array();
 
-foreach ($heading as $value) {
+foreach ($headings as $key => $value) {
     switch ($value) {
-        case '0':
-            $rss[0] = RssFeed($rssGameObject,$nbrArticles,$rssGameArray);
+        case 'gaming':
+            $rss[$key] = RssFeed($rssGameObject,$nbrArticles,$rssGameArray);
             break;
-        case '1':
-            $rss[1] =  RssFeed($rssSportObject,$nbrArticles,$rssSportArray);
+        case 'sport':
+            $rss[$key] =  RssFeed($rssSportObject,$nbrArticles,$rssSportArray);
             break;
-        case '2':
-            $rss[2] = RssFeed($rssNewsObject,$nbrArticles,$rssNewsArray);
+        case 'news':
+            $rss[$key] = RssFeed($rssNewsObject,$nbrArticles,$rssNewsArray);
             break;
-        case '3':
-            $rss[3] =   RssFeed($rssTechObject,$nbrArticles,$rssTechArray);
+        case 'tech':
+            $rss[$key] =   RssFeed($rssTechObject,$nbrArticles,$rssTechArray);
             break;
-        case '4':
-            $rss[4] =   RssFeed($rssMusicObject,$nbrArticles,$rssMusicArray);
+        case 'music':
+            $rss[$key] =   RssFeed($rssMusicObject,$nbrArticles,$rssMusicArray);
             break;
         default:
             $error['rssIncorrect'] = 'lien rss non trouvé';
@@ -62,7 +65,6 @@ function rssFeed(object $rss,int $nbrArticles,array $array):array{
         $array[$i]['link'] = $rss->channel->item[$i]->link;
         $array[$i]['desc'] = substr($rss->channel->item[$i]->description,0,200);
     }
-    // var_dump($array);
     return $array;
 }
 

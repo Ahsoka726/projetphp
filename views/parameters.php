@@ -39,23 +39,23 @@
                                 <label for="heading">Selectionnez la rubrique de votre choix</label>
                                 <br>
                                 <div>
-                                    <input type="checkbox" id="gaming" name="heading[]" value="0">
+                                    <input type="checkbox" id="gaming" name="heading[]" value="gaming">
                                     <label for="gaming">Gaming</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="sport" name="heading[]" value="1">
+                                    <input type="checkbox" id="sport" name="heading[]" value="sport">
                                     <label for="sport">Sport</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="tech" name="heading[]" value="2">
+                                    <input type="checkbox" id="tech" name="heading[]" value="tech">
                                     <label for="tech">Technologie</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="news" name="heading[]" value="3">
+                                    <input type="checkbox" id="news" name="heading[]" value="news">
                                     <label for="news">Actualités</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="music" name="heading[]" value="4"> 
+                                    <input type="checkbox" id="music" name="heading[]" value="music"> 
                                     <label for="musique">Musique</label>
                                     <p class="form-text text-muted"><?= $error['heading'] ?? '' ?></p
                                     

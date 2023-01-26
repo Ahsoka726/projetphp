@@ -1,7 +1,10 @@
-        <div class="row justify-content-around">
+       
+       
+       <div class="row justify-content-around">
 
-            <?php
-            foreach ($rssGameObject->channel->item as $item) {
+    <?php
+            foreach ($rss->channel->item as $item) {
+
                 $title       = (string) $item->title; // Title
                 $link        = (string) $item->link; // Url Link
                 $description = (string) $item->description; //Description
@@ -22,8 +25,9 @@
                     $text = substr($title, 0, $position_espace);
                     $title = $text . "(...)";
                 };
+               
             ?>
-                <div class="card col-sm-12 col-md-3 mb-3" style="width: 18rem;">
+                <div class="card col-sm-12 col-md-3 mb-3 mt-3" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title"><?= $title ?></h5>
                         <p class="card-text date"><?= $date ?></p>
@@ -31,7 +35,6 @@
                         <a href="<?= $link ?>" target="_blank" class="btn btn-primary">Voir plus</a>
                     </div>
                 </div>
-
             <?php
             } ?>
         </div>

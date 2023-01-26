@@ -20,24 +20,14 @@ $colors = filter_input(INPUT_POST, 'colors', FILTER_SANITIZE_SPECIAL_CHARS);
             // SECTION CHOIX DE RUBRIQUE (checkbox)
 
  // je recupere mes article grace a la contante INPUT POST et je procede au nettoyage que j'inclus dans une variable $headings
-$headings = filter_input(INPUT_POST, 'heading', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY) ?? [];
+$headings = filter_input(INPUT_POST, 'heading', FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY) ?? [];
 
 
      // j'utilise la fonction native count pour conditionné qu'au moins 3 valeur sont entrés (3 cases cochés)
-    if (count($headings) < 3) {
+     if(!in_array($headings,HEADINGS)){
         // envoie ce message d'erreur
         $error['heading'] = "Veuillez entrez au moins trois valeur";
-    } else {
-
-        // sinon je boucle sur le tableau $headings pour m'assurré qu'aucune valeur inférieur a 0 ou superieur a 5 ne soit entré 
-        foreach ($headings as $heading) {
-            if ($heading < 0 || $heading > 5) {
-        // envoie ce message d'erreur 
-                $error['heading'] = "Veuillez entrer une valeur existante";
-            }
-    }               
-    
-}  
+    }
 
             // SECTION CHOIX DE RUBRIQUE (checkbox) 
 
