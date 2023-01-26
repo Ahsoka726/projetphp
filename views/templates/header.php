@@ -43,14 +43,14 @@ if (!isset($_COOKIE['heading'])) {
             foreach ($headings as $heading){
             
               echo '<li class="nav-item  text-light">'.
-              '<a class="nav-link active" href="../../controllers/pagesController.php?pages='.
+              '<a class="nav-link active" href="'.
               $heading.
               '" aria-current="page">'.
               $heading.'<a>';
             } ?>
             <li class="nav-item  text-light">
-              <a class="nav-link active" href= "../../controllers/homeController.php" aria-current="page">Accueil</a>
-              <a class="nav-link active" href="../../controllers/parametersController.php" aria-current="page">Paramètre</a>
+              <a class="nav-link active" href= "Acceuil" aria-current="page">Accueil</a>
+              <a class="nav-link active" href="Parametre" aria-current="page">Paramètre</a>
             </li>
           </ul>
         </div>
